@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: The browser starts executing the JavaScript code (function redrawNotes) that rerenders the updated notes list on the page.
+
+    Note right of browser: The browser starts executing the JavaScript code (function sendToServer) that send the new note to the server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/notes/new_note_spa
+    activate server
+    server-->>browser: Status Code 201 (Created)
+    deactivate server
